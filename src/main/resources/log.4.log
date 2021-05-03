@@ -1,0 +1,6 @@
+2021-04-14 11:03:52 [http-nio-8080-exec-9] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-14 11:03:53 [http-nio-8080-exec-8] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-14 11:04:43 [http-nio-8080-exec-1] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List

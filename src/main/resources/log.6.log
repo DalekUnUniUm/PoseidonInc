@@ -1,0 +1,22 @@
+2021-04-09 14:43:51 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-09 14:43:58 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-04-09 14:44:01 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-09 14:44:03 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-04-09 14:44:14 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.updateUser()
+DEBUG: User updated with success
+2021-04-09 14:44:14 [http-nio-8080-exec-4] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-09 14:45:29 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-09 14:45:35 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-09 15:56:09 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-09 15:56:10 [http-nio-8080-exec-7] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-09 15:56:12 [http-nio-8080-exec-9] com.nnk.springboot.controllers.CurveController.home()
+INFO: Receive curve point list

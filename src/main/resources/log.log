@@ -1,0 +1,36 @@
+2021-04-29 11:47:22 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:47:27 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-29 11:47:28 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-29 11:48:07 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:48:11 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-29 11:49:06 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:49:17 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-04-29 11:50:37 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:50:58 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-04-29 11:51:48 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:52:12 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:52:18 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-04-29 11:53:02 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:53:23 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:53:42 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-29 11:53:47 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-29 11:53:54 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-29 11:58:45 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List

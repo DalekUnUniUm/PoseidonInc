@@ -1,0 +1,12 @@
+2021-04-11 16:05:30 [http-nio-8080-exec-7] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-11 16:05:30 [http-nio-8080-exec-8] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-04-11 16:05:33 [http-nio-8080-exec-1] com.nnk.springboot.controllers.CurveController.home()
+INFO: Receive curve point list
+2021-04-11 16:27:13 [http-nio-8080-exec-6] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-11 16:27:18 [http-nio-8080-exec-4] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-04-11 16:27:22 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list

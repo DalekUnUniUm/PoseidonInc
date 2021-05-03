@@ -1,0 +1,16 @@
+2021-04-08 17:28:14 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-04-08 17:28:17 [http-nio-8080-exec-2] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least 8 character
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least one uppercase character
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least one lowercase character
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least one number
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least one special character among @,#,$,%
+2021-04-08 17:28:26 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.validate()
+WARNING: Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character
