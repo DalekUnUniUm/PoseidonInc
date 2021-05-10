@@ -36,7 +36,7 @@ public class BidListService {
     }
 
     public String saveBidListOrUpdate(Integer id, BidList bidList, BindingResult result, Model model){
-
+        /**If id equal null, so it's a new Bid List**/
         if(id == null){
             Logger.info("Add bid list");
             if(!result.hasErrors()){
@@ -46,6 +46,7 @@ public class BidListService {
                 return "redirect:/bidList/list" ;
             }
         }
+        /**If id not null, so it's a Updated Bid List**/
         else{
             if(result.hasErrors()){
                 Logger.warn("Updated bid list failed");

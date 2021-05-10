@@ -35,7 +35,7 @@ public class CurveService {
     }
 
     public String saveCurvePointOrUpdate(Integer id, CurvePoint curvePoint, BindingResult result, Model model){
-
+        /**If id equal null, so it's a new Curve**/
         if(id == null){
             if(!result.hasErrors()){
                 saveCurvePoint(curvePoint);
@@ -44,6 +44,7 @@ public class CurveService {
                 return "redirect:/curvePoint/list";
             }
         }
+        /**If id not null, so it's a Updated Curve**/
         else{
             if(result.hasErrors()){
                 Logger.warn("Curve point update failed ");

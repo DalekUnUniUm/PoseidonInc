@@ -36,7 +36,7 @@ public class RuleNameService {
     }
 
     public String saveRuleNameOrUpdate(Integer id, RuleName ruleName, BindingResult result, Model model){
-
+        /**If id equal null, so it's a new Rule Name**/
         if(id == null){
             if(!result.hasErrors()){
                 saveRuleName(ruleName);
@@ -45,6 +45,7 @@ public class RuleNameService {
                 return "redirect:/ruleName/list" ;
             }
         }
+        /**If id not null, so it's a Updated Rule name**/
         else{
             if(result.hasErrors()){
                 Logger.warn("Rule name update failed");

@@ -12,7 +12,7 @@
 	<div class="row">
 		<h2>Update User</h2>
 	</div>
-
+	<span th:if="${logError != null}" class="error" style="color:red ;">Password must have at least one upper case, one lower case, one special char, one number</span>
 	<div class="row">
 		<form action="#" th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="post" class="form-horizontal" style="width: 100%">
 			<div class="form-group">

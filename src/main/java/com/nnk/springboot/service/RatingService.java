@@ -35,7 +35,7 @@ public class RatingService {
     }
 
     public String saveRatingOrUpdate(Integer id, Rating rating, BindingResult result, Model model){
-
+        /**If id equal null, so it's a new Rating **/
         if(id == null){
             if(!result.hasErrors()){
                 saveRating(rating);
@@ -44,6 +44,7 @@ public class RatingService {
                 return "redirect:/rating/list" ;
             }
         }
+        /**If id not null, so it's a Updated Rating**/
         else{
             if(result.hasErrors()){
                 Logger.warn("Rating update failed");

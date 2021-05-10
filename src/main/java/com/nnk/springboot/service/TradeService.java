@@ -36,7 +36,7 @@ public class TradeService {
     }
 
     public String saveTradeOrUpdate(Integer id, Trade trade, BindingResult result, Model model){
-
+        /**If id equal null, so it's a new Trade**/
         if(id == null){
             if(!result.hasErrors()){
                 Logger.debug("Trade saved with success");
@@ -45,6 +45,7 @@ public class TradeService {
                 return "redirect:/trade/list" ;
             }
         }
+        /**If id not null, so it's a Updated Trade**/
         else{
             if(result.hasErrors()){
                 Logger.warn("Trade update failed");
