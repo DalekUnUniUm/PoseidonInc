@@ -1,36 +1,98 @@
-2021-04-29 11:47:22 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+2021-05-10 11:05:42 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List
-2021-04-29 11:47:27 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
-INFO: Receive user list
-2021-04-29 11:47:28 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.home()
-INFO: Receive user list
-2021-04-29 11:48:07 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+2021-05-10 11:05:58 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.deleteBid()
+DEBUG: Bid list deleted with success
+2021-05-10 11:05:58 [http-nio-8080-exec-2] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List
-2021-04-29 11:48:11 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
-INFO: Receive user list
-2021-04-29 11:49:06 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+2021-05-10 11:06:01 [http-nio-8080-exec-10] com.nnk.springboot.controllers.BidListController.addBidForm()
+INFO: Load bid list add page
+2021-05-10 11:06:13 [http-nio-8080-exec-8] com.nnk.springboot.controllers.BidListController.validate()
+INFO: Add bid list
+2021-05-10 11:06:13 [http-nio-8080-exec-8] com.nnk.springboot.controllers.BidListController.validate()
+DEBUG: Bid list saved with success
+2021-05-10 11:06:13 [http-nio-8080-exec-7] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List
-2021-04-29 11:49:17 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.addUser()
+2021-05-10 11:06:23 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.showUpdateForm()
+INFO: Load bid list update page
+2021-05-10 11:06:29 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.updateBid()
+DEBUG: Bid list updated with success
+2021-05-10 11:06:29 [http-nio-8080-exec-2] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 11:06:32 [http-nio-8080-exec-10] com.nnk.springboot.controllers.CurveController.home()
+INFO: Receive curve point list
+2021-05-10 11:06:35 [http-nio-8080-exec-8] com.nnk.springboot.controllers.RatingController.home()
+INFO: Received rating list
+2021-05-10 11:07:25 [http-nio-8080-exec-4] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 11:07:32 [http-nio-8080-exec-2] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 11:07:43 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-05-10 11:07:50 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.updateUser()
+WARNING: User update failed
+2021-05-10 11:08:09 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.isValidPassword()
+INFO: Password must have at least one special character among @,#,$,%
+2021-05-10 11:08:09 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.updateUser()
+WARNING: Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character
+2021-05-10 11:08:43 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.updateUser()
+DEBUG: User updated with success
+2021-05-10 11:08:43 [http-nio-8080-exec-2] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:37:45 [http-nio-8080-exec-8] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 15:37:49 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:37:50 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:37:56 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.addUser()
 INFO: Load user add page
-2021-04-29 11:50:37 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
+2021-05-10 15:38:26 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.validate()
+WARNING: User save failed
+2021-05-10 15:38:26 [http-nio-8080-exec-7] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one special character among @,#,$,%
+2021-05-10 15:38:26 [http-nio-8080-exec-7] com.nnk.springboot.service.UserService.saveUserOrUpdate()
+WARNING: Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character
+2021-05-10 15:38:39 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.validate()
+WARNING: User save failed
+2021-05-10 15:44:42 [http-nio-8080-exec-9] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List
-2021-04-29 11:50:58 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.showUpdateForm()
-INFO: Load user update page
-2021-04-29 11:51:48 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
-INFO: Receive Bid List
-2021-04-29 11:52:12 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.home()
-INFO: Receive Bid List
-2021-04-29 11:52:18 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.showUpdateForm()
-INFO: Load user update page
-2021-04-29 11:53:02 [http-nio-8080-exec-6] com.nnk.springboot.controllers.BidListController.home()
-INFO: Receive Bid List
-2021-04-29 11:53:23 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
-INFO: Receive Bid List
-2021-04-29 11:53:42 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
-INFO: Receive Bid List
-2021-04-29 11:53:47 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.home()
+2021-05-10 15:44:46 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.home()
 INFO: Receive user list
-2021-04-29 11:53:54 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.home()
+2021-05-10 15:44:47 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
 INFO: Receive user list
-2021-04-29 11:58:45 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+2021-05-10 15:44:48 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-05-10 15:45:04 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.validate()
+WARNING: User save failed
+2021-05-10 15:45:04 [http-nio-8080-exec-7] com.nnk.springboot.service.UserService.saveUserOrUpdate()
+DEBUG: User saved with success
+2021-05-10 15:45:04 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:45:15 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-05-10 15:45:28 [http-nio-8080-exec-2] com.nnk.springboot.service.UserService.saveUserOrUpdate()
+DEBUG: User saved with success
+2021-05-10 15:45:28 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:45:38 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:45:42 [http-nio-8080-exec-10] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 15:45:44 [http-nio-8080-exec-2] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 15:46:58 [http-nio-8080-exec-10] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 15:47:27 [http-nio-8080-exec-7] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 15:47:33 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:47:37 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-05-10 15:47:54 [http-nio-8080-exec-4] com.nnk.springboot.service.UserService.saveUserOrUpdate()
+DEBUG: User saved with success
+2021-05-10 15:47:54 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:48:00 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 15:48:10 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List

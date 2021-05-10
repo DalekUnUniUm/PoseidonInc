@@ -36,14 +36,7 @@ public class TradeController {
 
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
-        if(!result.hasErrors()){
-            Logger.debug("Trade saved with success");
-            tradeService.saveTrade(trade);
-            model.addAttribute("trades",tradeService.getTrades());
-            return "redirect:/trade/list" ;
-        }
-        Logger.warn("Trade save failed");
-        return "trade/add";
+        return tradeService.saveTradeOrUpdate(null,trade,result,model);
     }
 
     @GetMapping("/trade/update/{id}")
@@ -57,19 +50,8 @@ public class TradeController {
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
                              BindingResult result, Model model) {
-        if(result.hasErrors()){
-            Logger.warn("Trade update failed");
-            return "trade/update" ;
-        }
 
-        trade.setAccount(trade.getAccount());
-        trade.setType(trade.getType());
-        trade.setBuyQuantity(trade.getBuyQuantity());
-        trade.setTradeId(id);
-        tradeService.saveTrade(trade);
-        model.addAttribute("trades",tradeService.getTrades());
-        Logger.debug("Trade updated with success");
-        return "redirect:/trade/list";
+        return tradeService.saveTradeOrUpdate(id,trade,result,model);
     }
 
     @GetMapping("/trade/delete/{id}")

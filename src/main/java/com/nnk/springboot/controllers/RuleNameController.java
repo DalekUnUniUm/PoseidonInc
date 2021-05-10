@@ -36,14 +36,7 @@ public class RuleNameController {
 
     @PostMapping("/ruleName/validate")
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
-        if(!result.hasErrors()){
-            ruleNameService.saveRuleName(ruleName);
-            model.addAttribute("ruleNames",ruleNameService.getRulesNames());
-            Logger.debug("Rule name saved with success");
-            return "redirect:/ruleName/list" ;
-        }
-        Logger.warn("Rule name save failed");
-        return "ruleName/add";
+        return ruleNameService.saveRuleNameOrUpdate(null,ruleName,result,model);
     }
 
     @GetMapping("/ruleName/update/{id}")
@@ -57,23 +50,7 @@ public class RuleNameController {
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
                              BindingResult result, Model model) {
-        if(result.hasErrors()){
-            Logger.warn("Rule name update failed");
-            return "ruleName/update" ;
-        }
-
-        ruleName.setName(ruleName.getName());
-        ruleName.setDescription(ruleName.getDescription());
-        ruleName.setJson(ruleName.getJson());
-        ruleName.setTemplate(ruleName.getTemplate());
-        ruleName.setSqlStr(ruleName.getSqlStr());
-        ruleName.setSqlPart(ruleName.getSqlPart());
-        ruleName.setId(id);
-
-        ruleNameService.saveRuleName(ruleName);
-        model.addAttribute("ruleNames",ruleNameService.getRulesNames());
-        Logger.debug("Rule name updated with success");
-        return "redirect:/ruleName/list";
+        return ruleNameService.saveRuleNameOrUpdate(id,ruleName,result,model);
     }
 
     @GetMapping("/ruleName/delete/{id}")

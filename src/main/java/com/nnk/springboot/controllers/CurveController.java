@@ -38,14 +38,7 @@ public class CurveController {
 
     @PostMapping("/curvePoint/validate")
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
-        if(!result.hasErrors()){
-            curveService.saveCurvePoint(curvePoint);
-            model.addAttribute("curvePoints",curveService.getCurvePoints());
-            Logger.debug("Curve point saved with success");
-            return "redirect:/curvePoint/list";
-        }
-        Logger.warn("Curve point save failed");
-        return "curvePoint/add";
+        return curveService.saveCurvePointOrUpdate(null,curvePoint,result,model);
     }
 
     @GetMapping("/curvePoint/update/{id}")
@@ -59,19 +52,7 @@ public class CurveController {
     @PostMapping("/curvePoint/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
                              BindingResult result, Model model) {
-        if(result.hasErrors()){
-            Logger.warn("Curve point update failed ");
-            return "curvePoint/update" ;
-        }
-
-        curvePoint.setCurveId(curvePoint.getCurveId());
-        curvePoint.setTerm(curvePoint.getTerm());
-        curvePoint.setValue(curvePoint.getValue());
-        curvePoint.setId(id);
-        curveService.saveCurvePoint(curvePoint);
-        model.addAttribute("curvePoints",curveService.getCurvePoints());
-        Logger.debug("Curve point saved with success");
-        return "redirect:/curvePoint/list";
+        return curveService.saveCurvePointOrUpdate(id,curvePoint,result,model);
     }
 
     @GetMapping("/curvePoint/delete/{id}")

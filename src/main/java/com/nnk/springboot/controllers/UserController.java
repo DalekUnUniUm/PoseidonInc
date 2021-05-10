@@ -1,11 +1,9 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.User;
-import com.nnk.springboot.repositories.UserRepository;
 import com.nnk.springboot.service.UserService;
 import org.pmw.tinylog.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,23 +35,7 @@ public class UserController {
 
     @PostMapping("/user/validate")
     public String validate(@Valid User user, BindingResult result, Model model) {
-
-        if(!isValidPassword(user.getPassword())){
-            Logger.warn("Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character");
-            model.addAttribute("logError", "logError");
-            return "user/add";
-        }
-
-        if (!result.hasErrors()) {
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            user.setPassword(encoder.encode(user.getPassword()));
-            userService.saveUser(user);
-            model.addAttribute("users", userService.getUsers());
-            Logger.debug("User saved with success");
-            return "redirect:/user/list";
-        }
-        Logger.warn("User save failed");
-        return "user/add";
+        return userService.saveUserOrUpdate(null,model,user,result);
     }
 
     @GetMapping("/user/update/{id}")
@@ -68,22 +50,7 @@ public class UserController {
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            Logger.warn("User update failed");
-            return "user/update";
-        }
-        if(!isValidPassword(user.getPassword())){
-            Logger.warn("Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character");
-            model.addAttribute("logError", "logError");
-            return "user/update";
-        }
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode(user.getPassword()));
-        user.setId(id);
-        userService.saveUser(user);
-        model.addAttribute("users", userService.getUsers());
-        Logger.debug("User updated with success");
-        return "redirect:/user/list";
+        return userService.saveUserOrUpdate(null,model,user,result);
     }
 
     @GetMapping("/user/delete/{id}")
@@ -94,37 +61,4 @@ public class UserController {
         Logger.debug("User deleted with success");
         return "redirect:/user/list";
     }
-
-    /**Testing fields of password (8 character, one upperCase, onelowercaser, one number and one special character)**/
-
-    public static boolean isValidPassword(String password){
-        boolean isValid = true ;
-
-        if(password.length() < 8){
-            Logger.info("Password must have at least 8 character");
-            isValid = false ;
-        }
-        String upperCaseChars = "(.*[A-Z].*)" ;
-        if(!password.matches(upperCaseChars)){
-            Logger.info("Password must have at least one uppercase character");
-            isValid = false ;
-        }
-        String lowerCaseChars = "(.*[a-z].*)" ;
-        if(!password.matches(lowerCaseChars)){
-            Logger.info("Password must have at least one lowercase character");
-            isValid = false ;
-        }
-        String numbers = "(.*[0-9].*)" ;
-        if(!password.matches(numbers)){
-            Logger.info("Password must have at least one number");
-            isValid = false ;
-        }
-        String specialChars = "(.*[@,#,$,%].*)" ;
-        if(!password.matches(specialChars)){
-            Logger.info("Password must have at least one special character among @,#,$,%");
-            isValid = false ;
-        }
-        return isValid ;
-    }
-
 }
