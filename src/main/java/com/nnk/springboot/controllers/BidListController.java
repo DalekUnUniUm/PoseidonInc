@@ -39,7 +39,15 @@ public class BidListController {
 
     @PostMapping("/bidList/validate")
     public String validate(@Valid BidList bid, BindingResult result, Model model) {
-        return bidListService.saveBidListOrUpdate(null,bid,result,model);
+        if(!result.hasErrors()){
+            bidListService.saveBidListOrUpdate(null,bid);
+            model.addAttribute("bidLists",bidListService.getBidLists());
+            Logger.debug("Bid list saved with success");
+            return "redirect:/bidList/list" ;
+        }
+
+        Logger.warn("Failed");
+        return "bidList/add" ;
     }
 
     @GetMapping("/bidList/update/{id}")
@@ -53,7 +61,14 @@ public class BidListController {
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
                              BindingResult result, Model model) {
-        return bidListService.saveBidListOrUpdate(id,bidList,result,model);
+        if(result.hasErrors()){
+            Logger.warn("Updated bid list failed");
+            return "bidList/update" ;
+        }
+        Logger.debug("Bid list updated with success");
+        bidListService.saveBidListOrUpdate(id,bidList);
+        model.addAttribute("bidLists",bidListService.getBidLists());
+        return "redirect:/bidList/list";
     }
 
     @GetMapping("/bidList/delete/{id}")

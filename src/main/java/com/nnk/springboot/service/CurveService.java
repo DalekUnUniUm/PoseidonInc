@@ -34,35 +34,18 @@ public class CurveService {
         curvePointRepository.deleteById(id);
     }
 
-    public String saveCurvePointOrUpdate(Integer id, CurvePoint curvePoint, BindingResult result, Model model){
+    public void saveCurvePointOrUpdate(Integer id, CurvePoint curvePoint) {
         /**If id equal null, so it's a new Curve**/
-        if(id == null){
-            if(!result.hasErrors()){
-                saveCurvePoint(curvePoint);
-                model.addAttribute("curvePoints",getCurvePoints());
-                Logger.debug("Curve point saved with success");
-                return "redirect:/curvePoint/list";
-            }
+        if (id == null) {
+            saveCurvePoint(curvePoint);
         }
         /**If id not null, so it's a Updated Curve**/
-        else{
-            if(result.hasErrors()){
-                Logger.warn("Curve point update failed ");
-                return "curvePoint/update" ;
-            }
-
+        else {
             curvePoint.setCurveId(curvePoint.getCurveId());
             curvePoint.setTerm(curvePoint.getTerm());
             curvePoint.setValue(curvePoint.getValue());
             curvePoint.setId(id);
             saveCurvePoint(curvePoint);
-            model.addAttribute("curvePoints",getCurvePoints());
-            Logger.debug("Curve point saved with success");
-            return "redirect:/curvePoint/list";
         }
-
-
-        Logger.warn("Curve point save failed");
-        return "curvePoint/add";
     }
 }

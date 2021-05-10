@@ -35,35 +35,18 @@ public class BidListService {
         bidListRepository.deleteById(id);
     }
 
-    public String saveBidListOrUpdate(Integer id, BidList bidList, BindingResult result, Model model){
+    public void saveBidListOrUpdate(Integer id, BidList bidList){
         /**If id equal null, so it's a new Bid List**/
         if(id == null){
-            Logger.info("Add bid list");
-            if(!result.hasErrors()){
-                saveBidList(bidList);
-                model.addAttribute("bidLists",getBidLists());
-                Logger.debug("Bid list saved with success");
-                return "redirect:/bidList/list" ;
-            }
+            saveBidList(bidList);
         }
         /**If id not null, so it's a Updated Bid List**/
         else{
-            if(result.hasErrors()){
-                Logger.warn("Updated bid list failed");
-                return "bidList/update" ;
-            }
-            Logger.debug("Bid list updated with success");
             bidList.setAccount(bidList.getAccount());
             bidList.setType(bidList.getType());
             bidList.setBidQuantity(bidList.getBidQuantity());
             bidList.setBidListId(bidList.getBidListId());
             saveBidList(bidList);
-            model.addAttribute("bidLists",getBidLists());
-            return "redirect:/bidList/list";
         }
-
-        Logger.warn("Failed");
-        return "bidList/add" ;
     }
-
 }

@@ -35,23 +35,13 @@ public class RuleNameService {
         ruleNameRepository.deleteById(id);
     }
 
-    public String saveRuleNameOrUpdate(Integer id, RuleName ruleName, BindingResult result, Model model){
+    public void saveRuleNameOrUpdate(Integer id, RuleName ruleName){
         /**If id equal null, so it's a new Rule Name**/
         if(id == null){
-            if(!result.hasErrors()){
-                saveRuleName(ruleName);
-                model.addAttribute("ruleNames",getRulesNames());
-                Logger.debug("Rule name saved with success");
-                return "redirect:/ruleName/list" ;
-            }
+            saveRuleName(ruleName);
         }
         /**If id not null, so it's a Updated Rule name**/
         else{
-            if(result.hasErrors()){
-                Logger.warn("Rule name update failed");
-                return "ruleName/update" ;
-            }
-
             ruleName.setName(ruleName.getName());
             ruleName.setDescription(ruleName.getDescription());
             ruleName.setJson(ruleName.getJson());
@@ -59,14 +49,9 @@ public class RuleNameService {
             ruleName.setSqlStr(ruleName.getSqlStr());
             ruleName.setSqlPart(ruleName.getSqlPart());
             ruleName.setId(id);
-
             saveRuleName(ruleName);
-            model.addAttribute("ruleNames",getRulesNames());
-            Logger.debug("Rule name updated with success");
-            return "redirect:/ruleName/list";
         }
-        Logger.warn("Rule name save failed");
-        return "ruleName/add";
+
     }
 
 }

@@ -35,35 +35,19 @@ public class TradeService {
         tradeRepository.deleteById(id);
     }
 
-    public String saveTradeOrUpdate(Integer id, Trade trade, BindingResult result, Model model){
+    public void saveTradeOrUpdate(Integer id, Trade trade){
         /**If id equal null, so it's a new Trade**/
         if(id == null){
-            if(!result.hasErrors()){
-                Logger.debug("Trade saved with success");
-                saveTrade(trade);
-                model.addAttribute("trades",getTrades());
-                return "redirect:/trade/list" ;
-            }
+            saveTrade(trade);
         }
         /**If id not null, so it's a Updated Trade**/
         else{
-            if(result.hasErrors()){
-                Logger.warn("Trade update failed");
-                return "trade/update" ;
-            }
-
             trade.setAccount(trade.getAccount());
             trade.setType(trade.getType());
             trade.setBuyQuantity(trade.getBuyQuantity());
             trade.setTradeId(id);
             saveTrade(trade);
-            model.addAttribute("trades",getTrades());
-            Logger.debug("Trade updated with success");
-            return "redirect:/trade/list";
         }
-
-        Logger.warn("Trade save failed");
-        return "trade/add";
     }
 
 }

@@ -50,46 +50,25 @@ public class UserService {
         userRepository.delete(user);
     }
 
-    public String saveUserOrUpdate(Integer id, Model model, User user,BindingResult result){
+    public void saveUserOrUpdate(Integer id, User user){
 
-        /**Testing fields from password**/
-        if(!isValidPassword(user.getPassword())){
-            Logger.warn("Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character");
-            model.addAttribute("logError", "logError");
-            return "user/add";
-        }
         /**If id equal null, so it's a new User**/
         if(id == null){
-            if (!result.hasErrors()) {
-                BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-                user.setPassword(encoder.encode(user.getPassword()));
-                saveUser(user);
-                model.addAttribute("users", getUsers());
-                Logger.debug("User saved with success");
-                return "redirect:/user/list";
-            }
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            user.setPassword(encoder.encode(user.getPassword()));
+            saveUser(user);
         }
         /**If id not null, so it's a Updated User**/
         else {
-            if (result.hasErrors()) {
-                Logger.warn("User update failed");
-                return "user/update";
-            }
             BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             user.setPassword(encoder.encode(user.getPassword()));
             user.setId(id);
             saveUser(user);
-            model.addAttribute("users", getUsers());
-            Logger.debug("User updated with success");
-            return "redirect:/user/list";
-
         }
-        Logger.warn("User save failed");
-        return "user/add";
     }
 
     /**Testing fields of password (8 character, one upperCase, onelowercaser, one number and one special character)**/
-    public static boolean isValidPassword(String password){
+    public boolean isValidPassword(String password){
         boolean isValid = true ;
 
         if(password.length() < 8){

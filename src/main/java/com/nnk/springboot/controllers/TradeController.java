@@ -33,10 +33,16 @@ public class TradeController {
         Logger.info("Load trade add page");
         return "trade/add";
     }
-
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
-        return tradeService.saveTradeOrUpdate(null,trade,result,model);
+        if(!result.hasErrors()){
+            Logger.debug("Trade saved with success");
+            tradeService.saveTradeOrUpdate(null,trade);
+            model.addAttribute("trades",tradeService.getTrades());
+            return "redirect:/trade/list" ;
+        }
+        Logger.warn("Rule name save failed");
+        return "trade/add";
     }
 
     @GetMapping("/trade/update/{id}")
@@ -50,8 +56,14 @@ public class TradeController {
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
                              BindingResult result, Model model) {
-
-        return tradeService.saveTradeOrUpdate(id,trade,result,model);
+        if(result.hasErrors()){
+            Logger.warn("Trade update failed");
+            return "trade/update" ;
+        }
+        tradeService.saveTradeOrUpdate(id,trade);
+        model.addAttribute("trades",tradeService.getTrades());
+        Logger.debug("Trade updated with success");
+        return "redirect:/trade/list";
     }
 
     @GetMapping("/trade/delete/{id}")

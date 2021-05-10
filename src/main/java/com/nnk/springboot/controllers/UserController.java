@@ -4,6 +4,7 @@ import com.nnk.springboot.domain.User;
 import com.nnk.springboot.service.UserService;
 import org.pmw.tinylog.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,7 +36,21 @@ public class UserController {
 
     @PostMapping("/user/validate")
     public String validate(@Valid User user, BindingResult result, Model model) {
-        return userService.saveUserOrUpdate(null,model,user,result);
+
+        /**Testing fields from password**/
+        if(!userService.isValidPassword(user.getPassword())){
+            Logger.warn("Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character");
+            model.addAttribute("logError", "logError");
+            return "user/add";
+        }
+        if (!result.hasErrors()){
+            userService.saveUserOrUpdate(null,user);
+            model.addAttribute("users", userService.getUsers());
+            Logger.debug("User saved with success");
+            return "redirect:/user/list";
+        }
+        Logger.warn("User save failed");
+        return "user/add";
     }
 
     @GetMapping("/user/update/{id}")
@@ -50,7 +65,21 @@ public class UserController {
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                              BindingResult result, Model model) {
-        return userService.saveUserOrUpdate(null,model,user,result);
+        /**Testing fields from password**/
+        if(!userService.isValidPassword(user.getPassword())){
+            Logger.warn("Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character");
+            model.addAttribute("logError", "logError");
+            return "user/add";
+        }
+        if (result.hasErrors()) {
+            Logger.warn("User update failed");
+            return "user/update";
+        }
+        userService.saveUserOrUpdate(id,user);
+        model.addAttribute("users", userService.getUsers());
+        Logger.debug("User updated with success");
+        return "redirect:/user/list";
+
     }
 
     @GetMapping("/user/delete/{id}")

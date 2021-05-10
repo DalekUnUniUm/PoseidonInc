@@ -96,3 +96,55 @@ INFO: Receive user list
 INFO: Receive user list
 2021-05-10 15:48:10 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
 INFO: Receive Bid List
+2021-05-10 21:12:29 [http-nio-8080-exec-5] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:12:35 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 21:12:35 [http-nio-8080-exec-2] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 21:12:40 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.addUser()
+INFO: Load user add page
+2021-05-10 21:13:00 [http-nio-8080-exec-7] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one special character among @,#,$,%
+2021-05-10 21:13:00 [http-nio-8080-exec-7] com.nnk.springboot.controllers.UserController.validate()
+WARNING: Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character
+2021-05-10 21:13:11 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.validate()
+DEBUG: User saved with success
+2021-05-10 21:13:11 [http-nio-8080-exec-4] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 21:13:16 [http-nio-8080-exec-1] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-05-10 21:13:27 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.updateUser()
+DEBUG: User updated with success
+2021-05-10 21:13:27 [http-nio-8080-exec-9] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 21:13:38 [http-nio-8080-exec-1] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:13:39 [http-nio-8080-exec-10] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:13:53 [http-nio-8080-exec-3] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:13:57 [http-nio-8080-exec-2] com.nnk.springboot.controllers.CurveController.home()
+INFO: Receive curve point list
+2021-05-10 21:14:04 [http-nio-8080-exec-9] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:14:19 [http-nio-8080-exec-1] com.nnk.springboot.controllers.BidListController.home()
+INFO: Receive Bid List
+2021-05-10 21:14:25 [http-nio-8080-exec-10] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list
+2021-05-10 21:14:28 [http-nio-8080-exec-8] com.nnk.springboot.controllers.UserController.showUpdateForm()
+INFO: Load user update page
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least 8 character
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one uppercase character
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one lowercase character
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one number
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.service.UserService.isValidPassword()
+INFO: Password must have at least one special character among @,#,$,%
+2021-05-10 21:14:32 [http-nio-8080-exec-5] com.nnk.springboot.controllers.UserController.updateUser()
+WARNING: Fields doesn't respect password field 8 character, one upperCase, onelowercaser, one number and one special character
+2021-05-10 21:14:40 [http-nio-8080-exec-3] com.nnk.springboot.controllers.UserController.home()
+INFO: Receive user list

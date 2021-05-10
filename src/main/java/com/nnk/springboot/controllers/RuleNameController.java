@@ -36,7 +36,14 @@ public class RuleNameController {
 
     @PostMapping("/ruleName/validate")
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
-        return ruleNameService.saveRuleNameOrUpdate(null,ruleName,result,model);
+        if(!result.hasErrors()){
+            ruleNameService.saveRuleNameOrUpdate(null,ruleName);
+            model.addAttribute("ruleNames",ruleNameService.getRulesNames());
+            Logger.debug("Rule name saved with success");
+            return "redirect:/ruleName/list" ;
+        }
+        Logger.warn("Rule name save failed");
+        return "ruleName/add";
     }
 
     @GetMapping("/ruleName/update/{id}")
@@ -50,7 +57,14 @@ public class RuleNameController {
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
                              BindingResult result, Model model) {
-        return ruleNameService.saveRuleNameOrUpdate(id,ruleName,result,model);
+        if(result.hasErrors()){
+            Logger.warn("Rule name update failed");
+            return "ruleName/update" ;
+        }
+        ruleNameService.saveRuleNameOrUpdate(id,ruleName);
+        model.addAttribute("ruleNames",ruleNameService.getRulesNames());
+        Logger.debug("Rule name updated with success");
+        return "redirect:/ruleName/list";
     }
 
     @GetMapping("/ruleName/delete/{id}")

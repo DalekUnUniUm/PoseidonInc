@@ -34,35 +34,19 @@ public class RatingService {
         ratingRepository.deleteById(id);
     }
 
-    public String saveRatingOrUpdate(Integer id, Rating rating, BindingResult result, Model model){
+    public void saveRatingOrUpdate(Integer id, Rating rating) {
         /**If id equal null, so it's a new Rating **/
-        if(id == null){
-            if(!result.hasErrors()){
-                saveRating(rating);
-                model.addAttribute("ratings",getRatings());
-                Logger.debug("Rating saved with success");
-                return "redirect:/rating/list" ;
-            }
+        if (id == null) {
+            saveRating(rating);
         }
         /**If id not null, so it's a Updated Rating**/
-        else{
-            if(result.hasErrors()){
-                Logger.warn("Rating update failed");
-                return "rating/update" ;
-            }
-
+        else {
             rating.setMoodysRating(rating.getMoodysRating());
             rating.setSandPRating(rating.getSandPRating());
             rating.setFitchRating(rating.getFitchRating());
             rating.setOrderNumber(rating.getOrderNumber());
             rating.setId(id);
             saveRating(rating);
-            model.addAttribute("ratings",getRatings());
-            Logger.debug("Rating updated with success");
-            return "redirect:/rating/list";
         }
-        Logger.warn("Rating save failed");
-        return "rating/add";
     }
-
 }

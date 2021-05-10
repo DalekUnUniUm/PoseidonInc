@@ -37,7 +37,15 @@ public class RatingController {
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
 
-        return ratingService.saveRatingOrUpdate(null,rating,result,model);
+        if(!result.hasErrors()){
+            ratingService.saveRatingOrUpdate(null,rating);
+            model.addAttribute("ratings",ratingService.getRatings());
+            Logger.debug("Rating saved with success");
+            return "redirect:/rating/list" ;
+        }
+
+        Logger.warn("Rating save failed");
+        return "rating/add";
     }
 
     @GetMapping("/rating/update/{id}")
@@ -51,7 +59,20 @@ public class RatingController {
     @PostMapping("/rating/update/{id}")
     public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
                              BindingResult result, Model model) {
-        return ratingService.saveRatingOrUpdate(id,rating,result,model);
+        if(result.hasErrors()){
+            Logger.warn("Rating update failed");
+            return "rating/update" ;
+        }
+
+        rating.setMoodysRating(rating.getMoodysRating());
+        rating.setSandPRating(rating.getSandPRating());
+        rating.setFitchRating(rating.getFitchRating());
+        rating.setOrderNumber(rating.getOrderNumber());
+        rating.setId(id);
+        ratingService.saveRatingOrUpdate(id,rating);
+        model.addAttribute("ratings",ratingService.getRatings());
+        Logger.debug("Rating updated with success");
+        return "redirect:/rating/list";
     }
 
     @GetMapping("/rating/delete/{id}")
